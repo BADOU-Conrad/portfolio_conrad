@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conrad BADOU - Développeur Full Stack</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4ade80',secondary:'#9ca3af'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #4ade80;
+            transition: width 0.5s ease-in-out;
+        }
+        .custom-checkbox {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #4ade80;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .custom-checkbox:checked {
+            background-color: #4ade80;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 0.25rem;
+            left: 0.4rem;
+            width: 0.4rem;
+            height: 0.6rem;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e5e7eb;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4ade80;
+        }
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4ade80;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">Conrad <span class="text-gray-800">BADOU</span></a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors">À propos</a>
+                <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors">Compétences</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors">Projets</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+            </nav>
+            
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center text-gray-700">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu flex-col space-y-4 py-4 px-4 bg-white border-t border-gray-100 md:hidden">
+            <a href="#about" class="text-gray-700 hover:text-primary transition-colors">À propos</a>
+            <a href="#skills" class="text-gray-700 hover:text-primary transition-colors">Compétences</a>
+            <a href="#projects" class="text-gray-700 hover:text-primary transition-colors">Projets</a>
+            <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-16 md:pt-32 md:pb-24" style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520modern%2520minimalist%2520background%2520with%2520subtle%2520geometric%2520patterns%2520in%2520light%2520green%2520and%2520white%2520colors%2520suitable%2520for%2520a%2520developer%2520portfolio%2520website%2520hero%2520section%2520clean%2520design%2520with%2520ample%2520space%2520for%2520text%2520on%2520the%2520left%2520side&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">Conrad BADOU</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-primary">Développeur Full Stack</h2>
+                    <p class="text-lg md:text-xl mb-8 text-gray-700 max-w-xl">Passionné par le développement web et les architectures modulaires. Je transforme des idées complexes en solutions élégantes et performantes.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="px-6 py-3 bg-primary text-white font-medium !rounded-button shadow-lg hover:shadow-xl transition-all whitespace-nowrap">
+                            <i class="ri-download-line mr-2"></i>Télécharger CV
+                        </a>
+                        <a href="#projects" class="px-6 py-3 bg-white text-primary border border-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap">
+                            <i class="ri-eye-line mr-2"></i>Voir mes projets
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">À propos de moi</h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden shadow-xl border-4 border-white">
+                        <img src="https://readdy.ai/api/search-image?query=professional%2520portrait%2520of%2520a%2520young%2520African%2520male%2520software%2520developer%2520with%2520short%2520hair%2520wearing%2520a%2520professional%2520outfit%2520neutral%2520expression%2520looking%2520at%2520camera%2520high%2520quality%2520professional%2520headshot%2520style%2520clean%2520background&width=500&height=500&seq=portrait1&orientation=squarish" 
+                             alt="Conrad BADOU" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Développeur passionné & étudiant</h3>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Actuellement en BUT Informatique et en Licence Systèmes Informatiques à l'IUT de Belfort-Montbéliard, je suis un développeur full stack passionné par la création de solutions logicielles robustes et élégantes.
+                    </p>
+                    
+                    <p class="text-gray-700 mb-6">
+                        Spécialisé en Laravel, Django, Vue.js et JavaScript, je possède également une solide expérience en bases de données (SQL, MongoDB, PostgreSQL) et en DevOps. Mon parcours professionnel m'a permis de travailler sur des projets concrets chez Technip Energies, Tranxact, Soft Innovation Technologies et IITECH SARL.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-code-s-slash-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Développement Web</h4>
+                                <p class="text-gray-600">Création d'applications web performantes et intuitives</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-database-2-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Bases de données</h4>
+                                <p class="text-gray-600">Conception et optimisation de structures de données</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-layout-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">UX/UI Design</h4>
+                                <p class="text-gray-600">Création d'interfaces utilisateurs modernes et fonctionnelles</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-server-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">DevOps</h4>
+                                <p class="text-gray-600">Automatisation et optimisation des processus de déploiement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Mes compétences</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-800">Frameworks & Bibliothèques</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-laravel-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Laravel</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-vuejs-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Vue.js</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-django-line ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Django</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-bootstrap-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Bootstrap</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6 text-gray-800">Langages de programmation</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-html5-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">HTML/CSS</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-javascript-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">JavaScript</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-php-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">PHP</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-python-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Python</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-java-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Java</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-file-code-line ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">LaTeX</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-6 text-gray-800">Bases de données & Outils</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-database-2-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">MySQL</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-database-2-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">PostgreSQL</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-database-2-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">MongoDB</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-database-2-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Oracle</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-terminal-box-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">Artisan CLI</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-file-excel-2-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">CSV/XLSX</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-layout-grid-fill ri-lg"></i>
+                            </div>
+                            <h4 class="font-semibold">DataTables</h4>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Mes projets</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=modern%2520enterprise%2520software%2520dashboard%2520interface%2520with%2520data%2520visualization%2520charts%2520and%2520tables%2520professional%2520clean%2520design%2520with%2520light%2520green%2520accents%2520business%2520analytics%2520platform%2520showing%2520project%2520management%2520metrics%2520high%2520quality%2520UI%2520design&width=800&height=450&seq=proj1&orientation=landscape" 
+                             alt="Projet AEDATA" 
+                             class="w-full h-full object-cover object-top">
+                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project1">
+                                Voir détails
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Refactorisation AEDATA</h3>
+                        <p class="text-gray-600 mb-4">Migration d'un outil stratégique de PHP vers Laravel chez Technip Energies (2025)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Artisan CLI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=e-commerce%2520platform%2520user%2520interface%2520showing%2520product%2520catalog%2520with%2520shopping%2520cart%2520functionality%2520modern%2520clean%2520design%2520with%2520light%2520green%2520accents%2520responsive%2520web%2520design%2520for%2520online%2520store%2520professional%2520UI%2520with%2520product%2520cards%2520and%2520navigation&width=800&height=450&seq=proj2&orientation=landscape" 
+                             alt="Plateforme E-commerce" 
+                             class="w-full h-full object-cover object-top">
+                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project2">
+                                Voir détails
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Plateforme E-commerce</h3>
+                        <p class="text-gray-600 mb-4">Développement d'une solution e-commerce complète pour Tranxact (2024)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">API REST</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=CRM%2520system%2520dashboard%2520with%2520customer%2520management%2520interface%2520showing%2520client%2520data%2520analytics%2520and%2520communication%2520tools%2520professional%2520business%2520software%2520with%2520clean%2520design%2520light%2520green%2520accents%2520data%2520visualization%2520charts%2520and%2520contact%2520management%2520features&width=800&height=450&seq=proj3&orientation=landscape" 
+                             alt="Système CRM" 
+                             class="w-full h-full object-cover object-top">
+                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project3">
+                                Voir détails
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Système CRM</h3>
+                        <p class="text-gray-600 mb-4">Conception d'un CRM sur mesure pour Soft Innovation Technologies (2023)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Django</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MongoDB</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="relative h-56">
+                        <img src="https://readdy.ai/api/search-image?query=inventory%2520management%2520system%2520interface%2520showing%2520product%2520tracking%2520and%2520stock%2520management%2520features%2520warehouse%2520management%2520software%2520with%2520barcode%2520scanning%2520functionality%2520professional%2520business%2520application%2520with%2520light%2520green%2520accents%2520clean%2520modern%2520UI%2520design&width=800&height=450&seq=proj4&orientation=landscape" 
+                             alt="Gestion d'inventaire" 
+                             class="w-full h-full object-cover object-top">
+                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project4">
+                                Voir détails
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Gestion d'inventaire</h3>
+                        <p class="text-gray-600 mb-4">Système de gestion d'inventaire pour IITECH SARL (2022)</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">XLSX Export</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="w-full md:w-1/2 bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-6">Envoyez-moi un message</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Nom</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">Sujet</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="px-6 py-3 bg-primary text-white font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap">
+                            <i class="ri-send-plane-fill mr-2"></i>Envoyer le message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="w-full md:w-1/2 bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-6">Mes coordonnées</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-mail-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">conrad.badou@example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-phone-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Téléphone</h4>
+                                <p class="text-gray-600">+33 6 12 34 56 78</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+                                <i class="ri-map-pin-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Localisation</h4>
+                                <p class="text-gray-600">Belfort-Montbéliard, France</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4">
+                            <h4 class="font-semibold text-gray-800 mb-4">Réseaux sociaux</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-linkedin-fill ri-lg"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-github-fill ri-lg"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-twitter-fill ri-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <a href="#" class="px-6 py-3 bg-white text-primary border border-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap inline-flex items-center">
+                                <i class="ri-file-text-line mr-2"></i>Télécharger mon rapport de stage
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-lg font-semibold">Conrad BADOU</p>
+                    <p class="text-gray-400">Développeur Full Stack</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="ri-linkedin-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="ri-github-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="ri-mail-fill ri-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 Conrad BADOU. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button id="close-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                        <i class="ri-close-line ri-lg"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 flex items-center hidden z-50">
+        <div id="toast-icon" class="w-8 h-8 flex items-center justify-center mr-3 rounded-full"></div>
+        <div>
+            <h4 id="toast-title" class="font-medium"></h4>
+            <p id="toast-message" class="text-sm text-gray-600"></p>
+        </div>
+    </div>
+
+    <script id="navigation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                } else {
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        const icon = mobileMenuButton.querySelector('i');
+                        icon.classList.remove('ri-close-line');
+                        icon.classList.add('ri-menu-line');
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Active link highlighting based on scroll position
+            function setActiveLink() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    const link = document.querySelector(`a[href="#${sectionId}"]`);
+                    if (link) {
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', setActiveLink);
+            setActiveLink();
+        });
+    </script>
+
+    <script id="project-modals-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectModal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const closeModal = document.getElementById('close-modal');
+            const projectDetailsBtns = document.querySelectorAll('.project-details-btn');
+            
+            const projectsData = {
+                project1: {
+                    title: "Refactorisation de l'outil AEDATA",
+                    company: "Technip Energies (2025)",
+                    description: `
+                        <p class="mb-4">J'ai dirigé la migration complète d'un outil stratégique de gestion de données d'ingénierie, passant d'une architecture PHP legacy à un framework Laravel moderne.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Implémentation de commandes Artisan personnalisées pour l'automatisation des tâches récurrentes et la maintenance</li>
+                            <li>Développement de vues dynamiques (DBViews, IMViews, PGViews, ExViews) pour améliorer l'affichage et l'analyse des données</li>
+                            <li>Optimisation des performances via des requêtes SQL par lots et une gestion efficace de gros volumes de données (>500K enregistrements)</li>
+                            <li>Refonte complète de l'interface utilisateur avec implémentation de modales, notifications toast et tableaux interactifs</li>
+                            <li>Mise en place d'un système de gestion des droits utilisateurs plus granulaire et sécurisé</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel 10</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP 8.2</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Artisan CLI</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap 5</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">DataTables</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>Cette refactorisation a permis d'améliorer les performances de l'application de 60%, de réduire le temps de chargement des pages de 75% et d'augmenter la productivité des utilisateurs finaux grâce à une interface plus intuitive et des fonctionnalités avancées.</p>
+                    `
+                },
+                project2: {
+                    title: "Plateforme E-commerce",
+                    company: "Tranxact (2024)",
+                    description: `
+                        <p class="mb-4">J'ai conçu et développé une solution e-commerce complète pour Tranxact, permettant la gestion de multiples boutiques en ligne avec un back-office centralisé.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Développement d'une architecture multi-tenant permettant de gérer plusieurs boutiques depuis une seule plateforme</li>
+                            <li>Implémentation d'un système de paiement sécurisé intégrant plusieurs passerelles (Stripe, PayPal, etc.)</li>
+                            <li>Création d'un système de gestion des stocks en temps réel avec alertes de réapprovisionnement</li>
+                            <li>Développement d'un module d'analyse des ventes avec tableaux de bord personnalisables</li>
+                            <li>Optimisation SEO et intégration avec les réseaux sociaux pour améliorer la visibilité</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Vue.js 3</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel 9</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Redis</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">API REST</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Stripe API</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Docker</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>La plateforme a permis à Tranxact d'augmenter ses ventes en ligne de 45% en 6 mois et de réduire les coûts opérationnels de 30% grâce à l'automatisation des processus de gestion.</p>
+                    `
+                },
+                project3: {
+                    title: "Système CRM",
+                    company: "Soft Innovation Technologies (2023)",
+                    description: `
+                        <p class="mb-4">J'ai développé un système CRM sur mesure pour Soft Innovation Technologies, adapté spécifiquement à leurs processus de gestion de la relation client dans le secteur des services informatiques.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Conception d'une architecture modulaire permettant l'ajout facile de nouvelles fonctionnalités</li>
+                            <li>Implémentation d'un système de suivi des interactions clients avec historique complet</li>
+                            <li>Développement d'un pipeline de vente personnalisé avec prévisions et analyses</li>
+                            <li>Création d'un système d'automatisation des emails et rappels basé sur des déclencheurs</li>
+                            <li>Intégration avec les outils existants (calendrier, email, facturation)</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Django 4.0</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Python 3.10</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MongoDB</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Celery</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap 5</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Chart.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">AWS S3</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>Le CRM a permis d'améliorer le taux de conversion des prospects de 25%, de réduire le temps de réponse aux clients de 60% et d'augmenter la satisfaction client mesurée par NPS de 15 points.</p>
+                    `
+                },
+                project4: {
+                    title: "Gestion d'inventaire",
+                    company: "IITECH SARL (2022)",
+                    description: `
+                        <p class="mb-4">J'ai conçu et implémenté un système complet de gestion d'inventaire pour IITECH SARL, une entreprise spécialisée dans la distribution de matériel informatique.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Développement d'un système de suivi des stocks en temps réel avec alertes de seuil</li>
+                            <li>Implémentation d'un module de gestion des fournisseurs et des commandes</li>
+                            <li>Création d'un système de codes-barres et QR codes pour faciliter la gestion physique</li>
+                            <li>Développement de rapports détaillés et exports personnalisables (CSV, XLSX)</li>
+                            <li>Intégration avec le système comptable existant</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP 7.4</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">jQuery</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">DataTables</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PhpSpreadsheet</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap 4</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>Le système a permis de réduire les erreurs d'inventaire de 85%, d'optimiser les niveaux de stock (réduction des coûts de stockage de 20%) et d'accélérer le processus de commande de 40%.</p>
+                    `
+                }
+            };
+            
+            // Open modal with project details
+            projectDetailsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const projectData = projectsData[projectId];
+                    
+                    modalTitle.textContent = projectData.title;
+                    modalContent.innerHTML = projectData.description;
+                    
+                    projectModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            projectModal.addEventListener('click', function(e) {
+                if (e.target === projectModal) {
+                    projectModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+                    projectModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+
+    <script id="contact-form-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toast-icon');
+            const toastTitle = document.getElementById('toast-title');
+            const toastMessage = document.getElementById('toast-message');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    // Show success toast
+                    toastIcon.className = 'w-8 h-8 flex items-center justify-center mr-3 rounded-full bg-green-100 text-green-500';
+                    toastIcon.innerHTML = '<i class="ri-check-line ri-lg"></i>';
+                    toastTitle.textContent = 'Message envoyé !';
+                    toastMessage.textContent = 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.';
+                    
+                    toast.classList.remove('hidden');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Hide toast after 5 seconds
+                    setTimeout(() => {
+                        toast.classList.add('hidden');
+                    }, 5000);
+                }, 1000);
+            });
+        });
+    </script>
+
+    <script id="skills-animation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars on scroll
+            const progressBars = document.querySelectorAll('.progress-bar');
+            
+            const animateProgressBars = () => {
+                progressBars.forEach(bar => {
+                    const rect = bar.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+                    
+                    if (isVisible) {
+                        const progressFill = bar.querySelector('.progress-fill');
+                        if (progressFill && !progressFill.style.width) {
+                            progressFill.style.width = '0%';
+                            setTimeout(() => {
+                                progressFill.style.width = progressFill.getAttribute('style').split('width:')[1];
+                            }, 100);
+                        }
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateProgressBars);
+            animateProgressBars();
+        });
+    </script>
+</body>
+</html>
