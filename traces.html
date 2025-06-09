@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Stage Technip Energies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #004080;
+    }
+    .trace {
+      background: #fff;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .trace img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-top: 1rem;
+    }
+    .commentaire strong {
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Portfolio – Stage chez Technip Energies</h1>
+  <section class="introduction">
+    <h2>Introduction</h2>
+    <p>
+      Ce portfolio présente les compétences que j’ai mobilisées et développées au cours de mon stage chez Technip Energies. J’ai été impliqué dans la refactorisation d’un outil métier stratégique, AEDATA, en migrant son architecture de PHP vers Laravel. Cette mission m’a permis de mettre en pratique mes savoirs techniques en développement web, traitement de données et gestion de projet tout en les confrontant aux réalités et exigences d’un contexte industriel. Les traces ci-dessous illustrent précisément ces savoirs et les savoir-faire que j’ai acquis ou renforcés durant cette expérience.
+    </p>
+  </section>
+  <div class="trace">
+    <h2>Trace 1 – Fonction Update de toutes les DBViews (Figure 3)</h2>
+    <div class="commentaire">
+      <p><strong>Savoirs mobilisés :</strong> Programmation orientée objet, architecture MVC, requêtes HTTP Laravel</p>
+      <p><strong>Savoir-faire démontré :</strong> Structuration de code backend, gestion d’erreurs, traitement conditionnel</p>
+      <p>
+        Cette figure illustre la fonction <code>update</code> qui met à jour les DBViews. Elle applique une logique de sélection, filtrage, et mise à jour conditionnelle. J’ai mis en œuvre des connaissances en POO et Laravel vues en formation. Ce code exploite pleinement le modèle MVC et intègre un bloc <code>try-catch</code> pour capturer les erreurs. Le traitement des vues sélectionnées démontre une application directe des enseignements en programmation serveur.
+      </p>
+    </div>
+    <img src="figures/figure3_update_dbviews.png" alt="Fonction Update des DBViews">
+  </div>
+
+  <div class="trace">
+    <h2>Trace 2 – Commande Artisan <code>downloadDbviews</code> (Figure 6)</h2>
+    <div class="commentaire">
+      <p><strong>Savoirs mobilisés :</strong> Scripting Laravel, gestion des fichiers, cron jobs</p>
+      <p><strong>Savoir-faire démontré :</strong> Création d’une commande artisan, automatisation de tâches récurrentes</p>
+      <p>
+        J’ai conçu cette commande Artisan pour automatiser le téléchargement et le traitement des fichiers CSV. Cette trace montre ma capacité à industrialiser des processus répétitifs en intégrant un système de logs et de gestion des erreurs, ainsi qu’une création dynamique de dossiers. Le savoir-faire acquis a été mis à l’épreuve dans un cadre réel.
+      </p>
+    </div>
+    <img src="figures/figure6_download_command.png" alt="Commande Artisan pour downloadDbviews">
+  </div>
+
+  <div class="trace">
+    <h2>Trace 3 – Fonction <code>generateFiles</code> pour IMViews (Figure 10)</h2>
+    <div class="commentaire">
+      <p><strong>Savoirs mobilisés :</strong> Manipulation de fichiers CSV/XLSX, base de données</p>
+      <p><strong>Savoir-faire démontré :</strong> Génération de fichiers d’export, mappage dynamique</p>
+      <p>
+        Cette fonction permet de générer dynamiquement des fichiers exportables. J’ai utilisé mes connaissances sur la manipulation de fichiers structurés et j’ai intégré PhpSpreadsheet pour assurer la qualité du rendu. Cela démontre mon autonomie technique et ma capacité à comprendre et implémenter les besoins métier.
+      </p>
+    </div>
+    <img src="figures/figure10_generate_files.png" alt="Fonction generateFiles pour IMViews">
+  </div>
+
+  <div class="trace">
+    <h2>Trace 4 – Interface Laravel actuelle (Figure 23)</h2>
+    <div class="commentaire">
+      <p><strong>Savoirs mobilisés :</strong> Bootstrap, DataTables, ergonomie</p>
+      <p><strong>Savoir-faire démontré :</strong> Refonte front-end, responsive design, intégration UI</p>
+      <p>
+        L’interface refaite avec DataTables améliore l’expérience utilisateur : tri, recherche, pagination, “Select All”, notifications toast. J’ai su refactorer une interface PHP vers Laravel en conservant l’ergonomie d’origine tout en modernisant l’expérience utilisateur.
+      </p>
+    </div>
+    <img src="figures/figure23_interface_laravel.png" alt="Interface Laravel optimisée">
+  </div>
+
+  <div class="trace">
+    <h2>Trace 5 – Fonction <code>importCsvToDatabase</code> (Figure 7)</h2>
+    <div class="commentaire">
+      <p><strong>Savoirs mobilisés :</strong> SQL dynamique, traitement de fichiers, métadonnées JSON</p>
+      <p><strong>Savoir-faire démontré :</strong> Création de schéma de table dynamique, insertion par lot</p>
+      <p>
+        La fonction <code>importCsvToDatabase</code> montre la gestion automatisée de la création de tables SQL. Elle exploite des métadonnées JSON pour adapter les structures et effectue des insertions optimisées. Ce développement met en valeur mes compétences en structuration de données et en intégration automatisée.
+      </p>
+    </div>
+    <img src="figures/figure7_import_csv.png" alt="Importation de CSV en base de données">
+  </div>
+    <section id="autres-savoir-faire">
+  <h2>Autres savoir-faire mobilisés</h2>
+
+  <!-- GESTION DE PROJET -->
+  <article class="trace">
+    <h3>Suivi de projet sans documentation initiale</h3>
+    <img src="figures/reunions_analyse_code.png" alt="Réunions et analyse manuelle du code" />
+    <p>
+      L’un des défis majeurs de mon stage a été la <strong>prise en main d’un projet non documenté</strong>. Pour comprendre l’outil AEDATA, j’ai dû :
+    </p>
+    <ul>
+      <li>analyser manuellement un code PHP existant non commenté,</li>
+      <li>planifier des réunions régulières avec mon tuteur technique,</li>
+      <li>et reconstituer la logique métier à partir de cas d’usage.</li>
+    </ul>
+    <p>
+      Cette expérience a renforcé mes <strong>savoir-faire en gestion de projet technique</strong> : <em>autonomie, planification, documentation et communication d’équipe</em>. Elle m’a permis de structurer mes tâches en itérations réalistes avec validation progressive.
+    </p>
+  </article>
+
+  <!-- SECURITE -->
+  <article class="trace">
+    <h3>Sécurisation de l’importation des fichiers CSV</h3>
+    <img src="figures/csv_validation.png" alt="Validation de fichiers CSV" />
+    <p>
+      Lors de l’import de fichiers CSV dans la base de données (cf. fonction <code>importCsvToDatabase</code>), j’ai implémenté des mécanismes de sécurité pour :
+    </p>
+    <ul>
+      <li>vérifier la conformité du format des colonnes (encodage, types),</li>
+      <li>nettoyer les noms de champs pour éviter les injections SQL,</li>
+      <li>contrôler le contenu des lignes (nulls, types, doublons).</li>
+    </ul>
+    <p>
+      Cette mise en œuvre témoigne de mon <strong>savoir-faire en sécurisation de données</strong> côté serveur, en utilisant les bonnes pratiques vues en cours et en stage (ex. sanitation, try/catch, logs d’erreur, rollback si échec).
+    </p>
+  </article>
+
+  <!-- VALIDATION & TESTS -->
+  <article class="trace">
+    <h3>Validation fonctionnelle et tests manuels</h3>
+    <img src="figures/interface_validation.png" alt="Validation de l’interface avec les utilisateurs" />
+    <p>
+      Après chaque nouvelle fonctionnalité livrée (duplication, génération de fichiers, commandes Artisan), j’ai organisé des sessions de validation avec mes encadrants. Cela impliquait :
+    </p>
+    <ul>
+      <li>le déploiement dans un environnement de test,</li>
+      <li>la rédaction de jeux d’essai ciblés,</li>
+      <li>et la collecte de retours utilisateurs sur l’ergonomie.</li>
+    </ul>
+    <p>
+      Même si je n’ai pas pu mettre en place des <strong>tests automatisés</strong> (prévu en évolution), j’ai démontré ma capacité à <strong>valider un code fiable et pertinent dans un contexte utilisateur réel</strong>. Ce savoir-faire est fondamental pour garantir la qualité d’une application en production.
+    </p>
+  </article>
+    </section>
+    <section id="autres-savoir-faire">
+    <h2>Autres savoir-faire mobilisés</h2>
+
+    <article class="trace">
+      <h3>Suivi de projet sans documentation initiale</h3>
+      <img src="figures/reunions_analyse_code.png" alt="Réunions et analyse manuelle du code" />
+      <p>
+        L’un des défis majeurs de mon stage a été la <strong>prise en main d’un projet non documenté</strong>. J’ai dû analyser manuellement le code existant et organiser des réunions régulières avec mon tuteur. Cette situation m’a permis de développer mes savoir-faire en autonomie, communication technique, et en priorisation des tâches dans un contexte agile.
+      </p>
+    </article>
+
+    <article class="trace">
+      <h3>Sécurisation de l’importation des fichiers CSV</h3>
+      <img src="figures/csv_validation.png" alt="Validation de fichiers CSV" />
+      <p>
+        Lors du développement de la fonction <code>importCsvToDatabase</code>, j’ai intégré des contrôles pour éviter les erreurs critiques liées à l’import de fichiers : vérification du format, nettoyage des noms de colonnes, détection d’incohérences. Cette approche reflète l'application de savoir-faire essentiels en <strong>sécurité des données et robustesse du backend</strong>.
+      </p>
+    </article>
+
+    <article class="trace">
+      <h3>Validation fonctionnelle et tests manuels</h3>
+      <img src="figures/interface_validation.png" alt="Validation de l’interface avec les utilisateurs" />
+      <p>
+        J’ai mis en place une validation fonctionnelle progressive des modules développés, avec test utilisateur, collecte de retours et ajustements continus. Ce processus, même sans tests automatisés, témoigne de ma rigueur dans l’<strong>assurance qualité</strong> et de mon <strong>adaptabilité aux retours terrain</strong>.
+      </p>
+    </article>
+  </section>
+  <section class="conclusion">
+    <h2>Conclusion</h2>
+    <p>
+      Ce stage m’a permis d’évoluer dans un environnement professionnel exigeant et stimulant. J’ai consolidé mes compétences techniques autour du framework Laravel, appris à manipuler de gros volumes de données et à structurer des interfaces ergonomiques et robustes. Au-delà des savoirs théoriques, ce sont mes savoir-faire en organisation, en adaptation et en communication technique que j’ai particulièrement renforcés. Cette expérience constitue une étape importante dans ma formation d’ingénieur et confirme mon intérêt pour le développement logiciel au service de projets industriels concrets.
+    </p>
+  </section>
+</body>
+</html>
+

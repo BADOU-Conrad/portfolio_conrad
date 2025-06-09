@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conrad BADOU - Développeur Full Stack</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4ade80',secondary:'#9ca3af'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #4ade80;
+            transition: width 0.5s ease-in-out;
+        }
+        .custom-checkbox {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #4ade80;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .custom-checkbox:checked {
+            background-color: #4ade80;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 0.25rem;
+            left: 0.4rem;
+            width: 0.4rem;
+            height: 0.6rem;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e5e7eb;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4ade80;
+        }
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4ade80;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-white via-gray-50 to-primary/10 text-gray-800 min-h-screen">
+    <!-- Header conservé de stage.html -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">Conrad <span class="text-gray-800">BADOU</span></a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors">À propos</a>
+                <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors">Compétences</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors">Projets</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+            </nav>
+            
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="w-10 h-10 flex items-center justify-center text-gray-700">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu flex-col space-y-4 py-4 px-4 bg-white border-t border-gray-100 md:hidden">
+            <a href="#about" class="text-gray-700 hover:text-primary transition-colors">À propos</a>
+            <a href="#skills" class="text-gray-700 hover:text-primary transition-colors">Compétences</a>
+            <a href="#projects" class="text-gray-700 hover:text-primary transition-colors">Projets</a>
+            <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pt-36 pb-20">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-10 text-center drop-shadow">Portfolio – Stage chez Technip Energies</h1>
+        <section class="mb-16 bg-white/80 rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg leading-relaxed text-justify">
+                Ce portfolio présente les compétences que j’ai mobilisées et développées au cours de mon stage chez Technip Energies. J’ai été impliqué dans la refactorisation d’un outil métier stratégique, AEDATA, en migrant son architecture de PHP vers Laravel. Cette mission m’a permis de mettre en pratique mes savoirs techniques en développement web, traitement de données et gestion de projet tout en les confrontant aux réalités et exigences d’un contexte industriel. Les traces ci-dessous illustrent précisément ces savoirs et les savoir-faire que j’ai acquis ou renforcés durant cette expérience.
+            </p>
+        </section>
+
+        <!-- Timeline des traces -->
+        <div class="relative pl-8 before:absolute before:top-0 before:left-2 before:w-1 before:h-full before:bg-primary/30 before:rounded-full space-y-16">
+            <!-- Trace 1 : Texte à gauche, image à droite -->
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 1 – Fonction Update de toutes les DBViews
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Programmation orientée objet, architecture MVC, requêtes HTTP Laravel</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Structuration de code backend, gestion d’erreurs, traitement conditionnel</p>
+                        <p class="text-justify">
+                            Cette figure illustre la fonction <code>update</code> qui met à jour les DBViews. Elle applique une logique de sélection, filtrage, et mise à jour conditionnelle. J’ai mis en œuvre des connaissances en POO et Laravel vues en formation. Ce code exploite pleinement le modèle MVC et intègre un bloc <code>try-catch</code> pour capturer les erreurs. Le traitement des vues sélectionnées démontre une application directe des enseignements en programmation serveur.
+                        </p>
+                    </div>
+                </div>
+                <figure class="flex-1 order-1 md:order-2 transition-transform duration-300 hover:scale-105">
+                    <img src="img/trace1.jpeg" alt="Fonction Update des DBViews" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 1 : Fonction <code>update</code> des DBViews</figcaption>
+                </figure>
+            </div>
+
+            <!-- Trace 2 : Image à gauche, texte à droite -->
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <figure class="flex-1 order-1 transition-transform duration-300 hover:scale-105">
+                    <img src="img/trace2.jpeg" alt="Commande Artisan pour downloadDbviews" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 2 : Commande Artisan <code>downloadDbviews</code></figcaption>
+                </figure>
+                <div class="flex-1 order-2">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 2 – Commande Artisan <code>downloadDbviews</code> 
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Scripting Laravel, gestion des fichiers, cron jobs</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Création d’une commande artisan, automatisation de tâches récurrentes</p>
+                        <p class="text-justify">
+                           La commande artisan <code>downloadDbviews</code>, présentée dans la Figure 2, automatise le téléchargement et l’intégration des fichiers CSV représentant les DBViews. J’ai conçu cette commande en m’appuyant sur les savoirs appris en formation autour des scripts d’automatisation, de la gestion des fichiers, et de l’architecture Laravel.
+J’ai su créer une commande réutilisable, adaptable à différents projets, et capable de traiter les données avec une logique d'importation conditionnelle. Cela démontre mon savoir-faire en modularité du code, intégration de bibliothèques externes, et surtout en industrialisation des processus récurrents, avec une attention particulière à la fiabilité et à la traçabilité (gestion des erreurs, logs détaillés).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trace 3 : Texte à gauche, image à droite -->
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 3 – Fonction <code>generateFiles</code> pour IMViews 
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Manipulation de fichiers CSV/XLSX, base de données</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Génération de fichiers d’export, mappage dynamique</p>
+                        <p class="text-justify">
+                          Cette figure illustre le développement de la fonction generateFiles, chargée de transformer les données issues d’une IMView en fichiers CSV et XLSX. Pour cela, j’ai mobilisé les savoirs acquis en cours de base de données et de format de fichiers (CSV, Excel), en les combinant avec des librairies spécialisées (PhpSpreadsheet).
+Ce travail m’a permis d’implémenter une fonction robuste, capable de transformer dynamiquement les colonnes SQL sélectionnées selon des règles de mapping définies par l’utilisateur. Ce savoir-faire montre ma capacité à produire des exports adaptés aux besoins métier, tout en garantissant la structuration et la lisibilité des données.
+C’est une illustration concrète de mon autonomie technique, mon adaptabilité aux outils métiers, et ma capacité à développer des fonctionnalités professionnelles à forte valeur ajoutée.
+                        </p>
+                    </div>
+                </div>
+                <figure class="flex-1 order-1 md:order-2 transition-transform duration-300 hover:scale-105">
+                    <img src="img/trace3.jpeg" alt="Fonction generateFiles pour IMViews" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 3 : Fonction <code>generateFiles</code> pour IMViews</figcaption>
+                </figure>
+            </div>
+
+            <!-- Trace 4 : Image à gauche, texte à droite -->
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <figure class="flex-1 order-1 transition-transform duration-300 hover:scale-105">
+                    <img src="img/trace4.jpeg" alt="Importation de CSV en base de données" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 4 : Fonction <code>importCsvToDatabase</code></figcaption>
+                </figure>
+                <div class="flex-1 order-2">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 4 – Fonction <code>importCsvToDatabase</code> 
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> SQL dynamique, traitement de fichiers, métadonnées JSON</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Création de schéma de table dynamique, insertion par lot</p>
+                        <p class="text-justify">
+                            La fonction <code>importCsvToDatabase</code> (Figure 4) est un bon exemple de l’utilisation combinée de plusieurs savoirs techniques : extraction de métadonnées JSON, création dynamique de tables SQL, importation en lot de données.
+J’ai utilisé mes compétences en analyse de structure de données, en construction d’algorithmes de transformation, et en optimisation de requêtes SQL pour mettre en place une chaîne d’importation fiable et performante.
+Cette fonction montre mon savoir-faire à produire des outils d’intégration de données efficaces, en respectant les contraintes de nommage, de volumétrie, et de performance. Elle illustre aussi ma capacité à concevoir des composants logiciels réutilisables et documentés.
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trace 5 : Deux images à droite, texte à gauche -->
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 5 – Interface Laravel actuelle
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Bootstrap, DataTables, ergonomie</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Refonte front-end, responsive design, intégration UI</p>
+                        <p class="text-justify">
+                            L’interface refaite avec DataTables améliore l’expérience utilisateur : tri, recherche, pagination, “Select All”, notifications toast. J’ai su refactorer une interface PHP vers Laravel en conservant l’ergonomie d’origine tout en modernisant l’expérience utilisateur.
+                            La Figure 5c montre l’interface utilisateur actuelle, refaite sous Laravel pour ressembler à l’ancienne interface en PHP (Figure 5a). J’ai utilisé les principes appris en ergonomie, CSS, et structuration d’interface pour reconstruire un affichage fluide, responsive et intuitif.
+                            J’ai ajouté les fonctions “Select All”, le tri dynamique, la recherche, et des notifications visuelles pour guider les actions utilisateurs. Cette interface est le fruit d’une réflexion continue sur l’expérience utilisateur et la compatibilité avec les anciens usages.
+                            Cette trace montre ma capacité à appliquer mes savoirs théoriques à un environnement professionnel, à réaliser une refonte front-end cohérente, et à collaborer efficacement avec les utilisateurs finaux pour proposer des solutions concrètes et efficaces.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/AEDATA.jpeg" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5a : Interface AEDATA PHP</figcaption>
+                    </figure>
+                   
+                </div>
+             
+            </div>
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                
+                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/trace5.jpeg" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5b : Interface Laravel AEDATA – Vue Avant mon arrivé</figcaption>
+                    </figure>
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/trace6.jpeg" alt="Interface Laravel optimisée 2" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5c : Interface Laravel AEDATA – Vue après mes modifications</figcaption>
+                    </figure>
+                </div>
+             
+            </div>
+        </div>
+
+        <section class="mt-20 text-center">
+            <hr class="w-24 mx-auto border-primary mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Conclusion</h2>
+            <p class="text-lg max-w-2xl mx-auto text-justify">
+                Ce stage m’a permis d’évoluer dans un environnement professionnel exigeant et stimulant. J’ai consolidé mes compétences techniques autour du framework Laravel, appris à manipuler de gros volumes de données et à structurer des interfaces ergonomiques et robustes. Au-delà des savoirs théoriques, ce sont mes savoir-faire en organisation, en adaptation et en communication technique que j’ai particulièrement renforcés. Cette expérience constitue une étape importante dans ma formation d’ingénieur et confirme mon intérêt pour le développement logiciel au service de projets industriels concrets.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer conservé de stage.html -->
+    <footer class="py-8 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-lg font-semibold">Conrad BADOU</p>
+                    <p class="text-gray-400">Développeur Full Stack</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="ri-linkedin-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="ri-github-fill ri-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="ri-mail-fill ri-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 Conrad BADOU. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button id="close-modal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700">
+                        <i class="ri-close-line ri-lg"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 flex items-center hidden z-50">
+        <div id="toast-icon" class="w-8 h-8 flex items-center justify-center mr-3 rounded-full"></div>
+        <div>
+            <h4 id="toast-title" class="font-medium"></h4>
+            <p id="toast-message" class="text-sm text-gray-600"></p>
+        </div>
+    </div>
+
+    <script id="navigation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                
+                const icon = mobileMenuButton.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('ri-menu-line');
+                    icon.classList.add('ri-close-line');
+                } else {
+                    icon.classList.remove('ri-close-line');
+                    icon.classList.add('ri-menu-line');
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        const icon = mobileMenuButton.querySelector('i');
+                        icon.classList.remove('ri-close-line');
+                        icon.classList.add('ri-menu-line');
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Active link highlighting based on scroll position
+            function setActiveLink() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    const link = document.querySelector(`a[href="#${sectionId}"]`);
+                    if (link) {
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', setActiveLink);
+            setActiveLink();
+        });
+    </script>
+
+    <script id="project-modals-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectModal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const closeModal = document.getElementById('close-modal');
+            const projectDetailsBtns = document.querySelectorAll('.project-details-btn');
+            
+            const projectsData = {
+                project1: {
+                    title: "Refactorisation de l'outil AEDATA",
+                    company: "Technip Energies (2025)",
+                    description: `
+                        <p class="mb-4">J'ai dirigé la migration complète d'un outil stratégique de gestion de données d'ingénierie, passant d'une architecture PHP legacy à un framework Laravel moderne.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Implémentation de commandes Artisan personnalisées pour l'automatisation des tâches récurrentes et la maintenance</li>
+                            <li>Développement de vues dynamiques (DBViews, IMViews, PGViews, ExViews) pour améliorer l'affichage et l'analyse des données</li>
+                            <li>Optimisation des performances via des requêtes SQL par lots et une gestion efficace de gros volumes de données (>500K enregistrements)</li>
+                            <li>Refonte complète de l'interface utilisateur avec implémentation de modales, notifications toast et tableaux interactifs</li>
+                            <li>Mise en place d'un système de gestion des droits utilisateurs plus granulaire et sécurisé</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel 10</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP 8.2</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Artisan CLI</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap 5</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">DataTables</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>Cette refactorisation a permis d'améliorer les performances de l'application de 60%, de réduire le temps de chargement des pages de 75% et d'augmenter la productivité des utilisateurs finaux grâce à une interface plus intuitive et des fonctionnalités avancées.</p>
+                    `
+                },
+                project2: {
+                    title: "Plateforme E-commerce",
+                    company: "Tranxact (2024)",
+                    description: `
+                        <p class="mb-4">J'ai conçu et développé une solution e-commerce complète pour Tranxact, permettant la gestion de multiples boutiques en ligne avec un back-office centralisé.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Développement d'une architecture multi-tenant permettant de gérer plusieurs boutiques depuis une seule plateforme</li>
+                            <li>Implémentation d'un système de paiement sécurisé intégrant plusieurs passerelles (Stripe, PayPal, etc.)</li>
+                            <li>Création d'un système de gestion des stocks en temps réel avec alertes de réapprovisionnement</li>
+                            <li>Développement d'un module d'analyse des ventes avec tableaux de bord personnalisables</li>
+                            <li>Optimisation SEO et intégration avec les réseaux sociaux pour améliorer la visibilité</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Vue.js 3</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel 9</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Redis</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">API REST</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Stripe API</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Docker</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>La plateforme a permis à Tranxact d'augmenter ses ventes en ligne de 45% en 6 mois et de réduire les coûts opérationnels de 30% grâce à l'automatisation des processus de gestion.</p>
+                    `
+                },
+                project3: {
+                    title: "Système CRM",
+                    company: "Soft Innovation Technologies (2023)",
+                    description: `
+                        <p class="mb-4">J'ai développé un système CRM sur mesure pour Soft Innovation Technologies, adapté spécifiquement à leurs processus de gestion de la relation client dans le secteur des services informatiques.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Conception d'une architecture modulaire permettant l'ajout facile de nouvelles fonctionnalités</li>
+                            <li>Implémentation d'un système de suivi des interactions clients avec historique complet</li>
+                            <li>Développement d'un pipeline de vente personnalisé avec prévisions et analyses</li>
+                            <li>Création d'un système d'automatisation des emails et rappels basé sur des déclencheurs</li>
+                            <li>Intégration avec les outils existants (calendrier, email, facturation)</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Django 4.0</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Python 3.10</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MongoDB</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Celery</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap 5</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Chart.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">AWS S3</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>Le CRM a permis d'améliorer le taux de conversion des prospects de 25%, de réduire le temps de réponse aux clients de 60% et d'augmenter la satisfaction client mesurée par NPS de 15 points.</p>
+                    `
+                },
+                project4: {
+                    title: "Gestion d'inventaire",
+                    company: "IITECH SARL (2022)",
+                    description: `
+                        <p class="mb-4">J'ai conçu et implémenté un système complet de gestion d'inventaire pour IITECH SARL, une entreprise spécialisée dans la distribution de matériel informatique.</p>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Réalisations clés :</h4>
+                        <ul class="list-disc pl-5 mb-4 space-y-2">
+                            <li>Développement d'un système de suivi des stocks en temps réel avec alertes de seuil</li>
+                            <li>Implémentation d'un module de gestion des fournisseurs et des commandes</li>
+                            <li>Création d'un système de codes-barres et QR codes pour faciliter la gestion physique</li>
+                            <li>Développement de rapports détaillés et exports personnalisables (CSV, XLSX)</li>
+                            <li>Intégration avec le système comptable existant</li>
+                        </ul>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Technologies utilisées :</h4>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP 7.4</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">jQuery</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">DataTables</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PhpSpreadsheet</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap 4</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold mb-2">Résultats :</h4>
+                        <p>Le système a permis de réduire les erreurs d'inventaire de 85%, d'optimiser les niveaux de stock (réduction des coûts de stockage de 20%) et d'accélérer le processus de commande de 40%.</p>
+                    `
+                }
+            };
+            
+            // Open modal with project details
+            projectDetailsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const projectData = projectsData[projectId];
+                    
+                    modalTitle.textContent = projectData.title;
+                    modalContent.innerHTML = projectData.description;
+                    
+                    projectModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            projectModal.addEventListener('click', function(e) {
+                if (e.target === projectModal) {
+                    projectModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+                    projectModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+
+    <script id="contact-form-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toast-icon');
+            const toastTitle = document.getElementById('toast-title');
+            const toastMessage = document.getElementById('toast-message');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    // Show success toast
+                    toastIcon.className = 'w-8 h-8 flex items-center justify-center mr-3 rounded-full bg-green-100 text-green-500';
+                    toastIcon.innerHTML = '<i class="ri-check-line ri-lg"></i>';
+                    toastTitle.textContent = 'Message envoyé !';
+                    toastMessage.textContent = 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.';
+                    
+                    toast.classList.remove('hidden');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Hide toast after 5 seconds
+                    setTimeout(() => {
+                        toast.classList.add('hidden');
+                    }, 5000);
+                }, 1000);
+            });
+        });
+    </script>
+
+    <script id="skills-animation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars on scroll
+            const progressBars = document.querySelectorAll('.progress-bar');
+            
+            const animateProgressBars = () => {
+                progressBars.forEach(bar => {
+                    const rect = bar.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+                    
+                    if (isVisible) {
+                        const progressFill = bar.querySelector('.progress-fill');
+                        if (progressFill && !progressFill.style.width) {
+                            progressFill.style.width = '0%';
+                            setTimeout(() => {
+                                progressFill.style.width = progressFill.getAttribute('style').split('width:')[1];
+                            }, 100);
+                        }
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateProgressBars);
+            animateProgressBars();
+        });
+    </script>
+</body>
+</html>
