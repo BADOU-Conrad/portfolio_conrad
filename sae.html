@@ -127,8 +127,8 @@
         }
     </style>
 </head>
-<body class="bg-white text-gray-800">
-    <!-- Header -->
+<body class="bg-gradient-to-br from-white via-gray-50 to-primary/10 text-gray-800 min-h-screen">
+    <!-- Header conservé de stage.html -->
     <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-primary">Conrad <span class="text-gray-800">BADOU</span></a>
@@ -155,525 +155,175 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative pt-24 pb-16 md:pt-32 md:pb-24" style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520modern%2520minimalist%2520background%2520with%2520subtle%2520geometric%2520patterns%2520in%2520light%2520green%2520and%2520white%2520colors%2520suitable%2520for%2520a%2520developer%2520portfolio%2520website%2520hero%2520section%2520clean%2520design%2520with%2520ample%2520space%2520for%2520text%2520on%2520the%2520left%2520side&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;">
-        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20"></div>
-        <div class="container mx-auto px-4 relative">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="w-full md:w-1/2 mb-8 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">Conrad BADOU</h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-primary">Développeur Full Stack</h2>
-                    <p class="text-lg md:text-xl mb-8 text-gray-700 max-w-xl">Passionné par le développement web et les architectures modulaires. Je transforme des idées complexes en solutions élégantes et performantes.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#" class="px-6 py-3 bg-primary text-white font-medium !rounded-button shadow-lg hover:shadow-xl transition-all whitespace-nowrap">
-                            <i class="ri-download-line mr-2"></i>Télécharger CV
-                        </a>
-                        <a href="#projects" class="px-6 py-3 bg-white text-primary border border-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap">
-                            <i class="ri-eye-line mr-2"></i>Voir mes projets
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <main class="container mx-auto px-4 pt-36 pb-20">
+        <section class="mb-16 bg-white/80 rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Introduction</h2>
+            <p class="text-lg leading-relaxed text-justify">
+                Ce portfolio présente les compétences que j’ai mobilisées et développées au cours de mon travail de groupe pour la SAE. J’ai été impliqué dans le développement du frontend de notre projet, mais aussi dans le développement du serveur et de l'api Node Js. Les traces ci-dessous illustrent précisément ces savoirs et les savoir-faire que j’ai acquis ou renforcés durant cette expérience.
+            </p>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">À propos de moi</h2>
-            
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div class="w-full md:w-1/3 flex justify-center">
-                    <div class="w-64 h-64 rounded-full overflow-hidden shadow-xl border-4 border-white">
-                        <img src="BADOU_Conrad Photo.jpg" 
-                             alt="Conrad BADOU" 
-                             class="w-full h-full object-cover">
-                    </div>
+        <!-- Timeline des traces -->
+        <div class="relative pl-8 before:absolute before:top-0 before:left-2 before:w-1 before:h-full before:bg-primary/30 before:rounded-full space-y-16">
+            <!-- Trace 1 : Texte à gauche, image à droite -->
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Architecture Logicielle et Matérielle du Projet GEST PLANTE
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                               
+                                <p class="text-gray-700 mb-4">
+                                    La figure 1 présenté ici illustre l’architecture complète et intégrée du projet GEST PLANTE, conçu dans le cadre de la SAÉ S5-S6. Ce projet vise à créer une solution intelligente de gestion de plantes domestiques, s’appuyant sur l’interconnexion d’éléments matériels (IoT), logiciels, et des techniques avancées d'analyse et de visualisation de données.
+                                </p>
+                                                  </div>
                 </div>
-                
-                <div class="w-full md:w-2/3">
-                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Développeur passionné & étudiant</h3>
-                    
-                    <p class="text-gray-700 mb-4">
-                        Actuellement en BUT Informatique et en Licence Systèmes Informatiques à l'IUT de Belfort-Montbéliard, je suis un développeur full stack passionné par la création de solutions logicielles robustes et élégantes.
-                    </p>
-                    
-                    <p class="text-gray-700 mb-6">
-                        Spécialisé en Laravel, Django, Vue.js et JavaScript, je possède également une solide expérience en bases de données (SQL, MongoDB, PostgreSQL) et en DevOps. Mon parcours professionnel m'a permis de travailler sur des projets concrets chez Technip Energies, Tranxact, Soft Innovation Technologies et IITECH SARL.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-code-s-slash-line ri-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Développement Web</h4>
-                                <p class="text-gray-600">Création d'applications web performantes et intuitives</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-database-2-line ri-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Bases de données</h4>
-                                <p class="text-gray-600">Conception et optimisation de structures de données</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-layout-line ri-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">UX/UI Design</h4>
-                                <p class="text-gray-600">Création d'interfaces utilisateurs modernes et fonctionnelles</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-server-line ri-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">DevOps</h4>
-                                <p class="text-gray-600">Automatisation et optimisation des processus de déploiement</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <figure class="flex-1 order-1 md:order-2 transition-transform duration-300 hover:scale-105">
+                    <img src="img/trace1sae.PNG" alt="Architechture" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 1 : Architecture Logicielle et Matérielle du Projet GEST PLANTE </figcaption>
+                </figure>
             </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Mes compétences</h2>
-            
-            <div class="mb-12">
-                <h3 class="text-xl font-semibold mb-6 text-gray-800">Frameworks & Bibliothèques</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-laravel-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Laravel</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-vuejs-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Vue.js</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-django-line ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Django</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-bootstrap-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Bootstrap</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 90%"></div>
-                        </div>
+            <!-- Trace 2 : Image à gauche, texte à droite -->
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <figure class="flex-1 order-1 transition-transform duration-300 hover:scale-105">
+                    <img src="img/tracesae3.png" alt="Commande Artisan pour downloadDbviews" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 2 : Commande Artisan <code>downloadDbviews</code></figcaption>
+                </figure>
+                <div class="flex-1 order-2">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 1 – Commande Artisan <code>downloadDbviews</code> 
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Savoir modéliser une entité métier (ici, une mesure d’un capteur) en POO.</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Créer et manipuler des classes de modèle pour structurer les données échangées et stockées.</p>
+                        <p class="text-justify">
+                          Le savoir mobilisé ici consiste à comprendre et appliquer la modélisation d’une entité métier en programmation orientée objet (POO). Cela signifie être capable d’identifier les caractéristiques essentielles d’un concept du domaine (ici, une mesure relevée par un capteur) et de les traduire sous forme de propriétés et de comportements dans une classe Java.
+La mise en œuvre pratique de ce savoir se concrétise dans la classe Measure de la figure 2 : je définis les attributs sensorId, value et timestamp pour représenter respectivement l’identifiant du capteur, la valeur mesurée et la date/heure de la mesure. Le constructeur permet d’instancier facilement un objet Measure avec ces informations, et les getters/setters facilitent l’accès et la modification contrôlée de ces données. Cette structuration permet d’échanger et de stocker les mesures de façon fiable et cohérente dans l’application.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="mb-12">
-                <h3 class="text-xl font-semibold mb-6 text-gray-800">Langages de programmation</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-html5-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">HTML/CSS</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-javascript-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">JavaScript</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-php-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">PHP</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-python-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Python</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-java-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Java</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-file-code-line ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">LaTeX</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 75%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div>
-                <h3 class="text-xl font-semibold mb-6 text-gray-800">Bases de données & Outils</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-database-2-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">MySQL</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-database-2-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">PostgreSQL</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-database-2-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">MongoDB</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-database-2-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Oracle</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-terminal-box-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">Artisan CLI</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-file-excel-2-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">CSV/XLSX</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card bg-white p-6 rounded shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-layout-grid-fill ri-lg"></i>
-                            </div>
-                            <h4 class="font-semibold">DataTables</h4>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Mes projets</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-                    <div class="relative h-56">
-                        <img src="https://readdy.ai/api/search-image?query=modern%2520enterprise%2520software%2520dashboard%2520interface%2520with%2520data%2520visualization%2520charts%2520and%2520tables%2520professional%2520clean%2520design%2520with%2520light%2520green%2520accents%2520business%2520analytics%2520platform%2520showing%2520project%2520management%2520metrics%2520high%2520quality%2520UI%2520design&width=800&height=450&seq=proj1&orientation=landscape" 
-                             alt="Projet AEDATA" 
-                             class="w-full h-full object-cover object-top">
-                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
-                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project1">
-                                Voir détails
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Refactorisation AEDATA</h3>
-                        <p class="text-gray-600 mb-4">Migration d'un outil stratégique de PHP vers Laravel chez Technip Energies (2025)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Artisan CLI</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-                    <div class="relative h-56">
-                        <img src="https://readdy.ai/api/search-image?query=e-commerce%2520platform%2520user%2520interface%2520showing%2520product%2520catalog%2520with%2520shopping%2520cart%2520functionality%2520modern%2520clean%2520design%2520with%2520light%2520green%2520accents%2520responsive%2520web%2520design%2520for%2520online%2520store%2520professional%2520UI%2520with%2520product%2520cards%2520and%2520navigation&width=800&height=450&seq=proj2&orientation=landscape" 
-                             alt="Plateforme E-commerce" 
-                             class="w-full h-full object-cover object-top">
-                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
-                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project2">
-                                Voir détails
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">SAE</h3>
-                        <p class="text-gray-600 mb-4">Développement d'une solution e-commerce complète pour Tranxact (2024)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Vue.js</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Laravel</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PostgreSQL</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">API REST</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-                    <div class="relative h-56">
-                        <img src="https://readdy.ai/api/search-image?query=CRM%2520system%2520dashboard%2520with%2520customer%2520management%2520interface%2520showing%2520client%2520data%2520analytics%2520and%2520communication%2520tools%2520professional%2520business%2520software%2520with%2520clean%2520design%2520light%2520green%2520accents%2520data%2520visualization%2520charts%2520and%2520contact%2520management%2520features&width=800&height=450&seq=proj3&orientation=landscape" 
-                             alt="Système CRM" 
-                             class="w-full h-full object-cover object-top">
-                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
-                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project3">
-                                Voir détails
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Système CRM</h3>
-                        <p class="text-gray-600 mb-4">Conception d'un CRM sur mesure pour Soft Innovation Technologies (2023)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Django</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Python</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MongoDB</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!- Project 4 ->
-                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-                    <div class="relative h-56">
-                        <img src="https://readdy.ai/api/search-image?query=inventory%2520management%2520system%2520interface%2520showing%2520product%2520tracking%2520and%2520stock%2520management%2520features%2520warehouse%2520management%2520software%2520with%2520barcode%2520scanning%2520functionality%2520professional%2520business%2520application%2520with%2520light%2520green%2520accents%2520clean%2520modern%2520UI%2520design&width=800&height=450&seq=proj4&orientation=landscape" 
-                             alt="Gestion d'inventaire" 
-                             class="w-full h-full object-cover object-top">
-                        <div class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300">
-                            <button class="project-details-btn px-6 py-2 bg-white text-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap" data-project="project4">
-                                Voir détails
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Gestion d'inventaire</h3>
-                        <p class="text-gray-600 mb-4">Système de gestion d'inventaire pour IITECH SARL (2022)</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">PHP</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">JavaScript</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">MySQL</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">XLSX Export</span>
-                        </div>
-                    </div>
-                </div>-->
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Contact</h2>
-            
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="w-full md:w-1/2 bg-gray-50 p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-6">Envoyez-moi un message</h3>
-                    
-                    <form id="contact-form" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 mb-2">Nom</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
-                        </div>
-                        
-                        <div>
-                            <label for="subject" class="block text-gray-700 mb-2">Sujet</label>
-                            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="px-6 py-3 bg-primary text-white font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap">
-                            <i class="ri-send-plane-fill mr-2"></i>Envoyer le message
-                        </button>
-                    </form>
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 2 – Persistance des données & Intégrer la persistance 
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Comprendre la persistance des données (ici, via MongoDB).</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span>  Intégrer la persistance en stockant les mesures reçues dans une base de données.</p>
+                        <p class="text-justify">
+                         Le savoir mobilisé ici est la compréhension de la persistance des données, c’est-à-dire la capacité à conserver durablement des informations au-delà de l’exécution du programme, notamment à l’aide d’une base de données comme MongoDB. La mise en œuvre pratique de ce savoir se traduit dans la méthode saveMeasure comme nous montre la figure 3, qui prend un objet Measure, extrait ses attributs principaux (sensorId, value, timestamp) et les organise dans un document MongoDB. Ce document est ensuite inséré dans la collection grâce à la méthode insertOne. Ainsi, chaque mesure reçue par l’application est stockée de façon structurée et persistante, ce qui permet de la retrouver et de l’exploiter ultérieurement. Ce savoir-faire est essentiel pour garantir la traçabilité et l’exploitation des données dans une application connectée.
+                        </p>
+                    </div>
                 </div>
-                
-                <div class="w-full md:w-1/2 bg-gray-50 p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-6">Mes coordonnées</h3>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-mail-line ri-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Email</h4>
-                                <p class="text-gray-600">conrad.badou@example.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-phone-line ri-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Téléphone</h4>
-                                <p class="text-gray-600">+33 6 12 34 56 78</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
-                                <i class="ri-map-pin-line ri-lg"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Localisation</h4>
-                                <p class="text-gray-600">Belfort-Montbéliard, France</p>
-                            </div>
-                        </div>
-                        
-                        <div class="pt-4">
-                            <h4 class="font-semibold text-gray-800 mb-4">Réseaux sociaux</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-primary hover:text-white transition-colors">
-                                    <i class="ri-linkedin-fill ri-lg"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-primary hover:text-white transition-colors">
-                                    <i class="ri-github-fill ri-lg"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-primary hover:text-white transition-colors">
-                                    <i class="ri-twitter-fill ri-lg"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="pt-6">
-                            <a href="#" class="px-6 py-3 bg-white text-primary border border-primary font-medium !rounded-button shadow hover:shadow-lg transition-all whitespace-nowrap inline-flex items-center">
-                                <i class="ri-file-text-line mr-2"></i>Télécharger mon rapport de stage
-                            </a>
-                        </div>
+                <figure class="flex-1 order-1 md:order-2 transition-transform duration-300 hover:scale-105">
+                    <img src="img/tracesae4.png" alt="Fonction generateFiles pour IMViews" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 3 : Fonction <code>generateFiles</code> pour IMViews</figcaption>
+                </figure>
+            </div>
+
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <figure class="flex-1 order-1 transition-transform duration-300 hover:scale-105">
+                    <img src="img/tracesae5.png" alt="Importation de CSV en base de données" class="rounded border shadow w-full object-cover max-h-72">
+                    <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 4 :  Protocoles de communication et communication réseau</figcaption>
+                </figure>
+                <div class="flex-1 order-2">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 3 –  Protocoles de communication & Implémenter la communication réseau 
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span>  Comprendre les protocoles d’échange entre client et serveur</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span>  Implémenter la communication réseau pour recevoir et traiter des requêtes.</p>
+                        <p class="text-justify">
+ Le savoir mobilisé ici consiste à comprendre les protocoles d’échange entre un client et un serveur, c’est-à-dire savoir comment les données transitent sur le réseau, comment sont structurées les requêtes et les réponses, et comment assurer une communication fiable. Dans la mise en œuvre pratique comme le montre la figure 4, j’utilise un BufferedReader et un PrintWriter pour établir un canal de communication texte avec le client via le socket. Je lis la requête envoyée par le client et, si elle commence par "STOREMEASURE", je traite la demande puis j’envoie une réponse de confirmation ("MEASURE_STORED"). Ainsi, je mets en place un dialogue simple mais efficace entre le client et le serveur, ce qui me permet de recevoir, d’identifier et de traiter dynamiquement les requêtes réseau.
+                        </p>
                     </div>
                 </div>
             </div>
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 4 – Architecture REST & Adapter une architecture existante
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span>  Comprendre l’architecture REST (ressources, méthodes HTTP, endpoints).</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span>Adapter une architecture Express existante en ajoutant/modifiant des routes pour répondre aux besoins du projet.</p>
+                        <p class="text-justify">
+                            Le savoir mobilisé ici est la compréhension de l’architecture REST, qui repose sur la notion de ressources accessibles via des méthodes HTTP (GET, POST, PUT, etc.) et des endpoints clairement définis. Dans la mise en œuvre pratique, j’ai adapté l’architecture Express existante en ajoutant de nouvelles routes pour répondre aux besoins du projet. Par exemple, en créant la route router.post('/measure', measureController.create);, j’ai permis à des clients d’envoyer des mesures à l’API via une requête HTTP POST. Cette intégration respecte les principes REST en associant chaque action métier à une ressource et une méthode HTTP appropriée, ce qui rend l’API claire, évolutive et facilement exploitable par d’autres applications.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/traceapi.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5 : Architecture REST & Adapter une architecture existante</figcaption>
+                    </figure>
+                   
+                </div>
+             
+            </div>
+
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 5 –  Validation des données & Sécuriser les entrées utilisateur
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Comprendre l’importance de la validation des données côté serveur.</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Implémenter des fonctions de validation pour sécuriser les entrées utilisateur et éviter les erreurs ou attaques.</p>
+                        <p class="text-justify">
+                          Le savoir mobilisé ici est la compréhension de l’importance de la validation des données côté serveur, afin de garantir l’intégrité et la sécurité des informations reçues, et de se prémunir contre les erreurs ou les attaques potentielles. Dans la mise en œuvre pratique, j’ai développé la fonction checkName (Figure 6) qui vérifie si la donnée reçue (type) est bien définie et ne contient que des caractères autorisés grâce à la méthode isAlphanumeric du module validator. Si la validation échoue, je renseigne une erreur spécifique et j’interromps le traitement. Cette démarche me permet de contrôler efficacement les entrées utilisateur et de renforcer la robustesse de mon application.  
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/traceapi1.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 6 : Modélisation objet & Créer/manipuler des modèles Mongoose avec Node Js</figcaption>
+                    </figure>
+                   
+                </div>
+             
+            </div>
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                
+                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/trace5.jpeg" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5b : Interface Laravel AEDATA – Vue Avant mon arrivé</figcaption>
+                    </figure>
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/trace6.jpeg" alt="Interface Laravel optimisée 2" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5c : Interface Laravel AEDATA – Vue après mes modifications</figcaption>
+                    </figure>
+                </div>
+             
+            </div>
         </div>
-    </section>
-    <!-- Footer -->
+
+        <section class="mt-20 text-center">
+            <hr class="w-24 mx-auto border-primary mb-6">
+            <h2 class="text-2xl font-semibold text-primary mb-4">Conclusion</h2>
+            <p class="text-lg max-w-2xl mx-auto text-justify">
+                Ce stage m’a permis d’évoluer dans un environnement professionnel exigeant et stimulant. J’ai consolidé mes compétences techniques autour du framework Laravel, appris à manipuler de gros volumes de données et à structurer des interfaces ergonomiques et robustes. Au-delà des savoirs théoriques, ce sont mes savoir-faire en organisation, en adaptation et en communication technique que j’ai particulièrement renforcés. Cette expérience constitue une étape importante dans ma formation d’ingénieur et confirme mon intérêt pour le développement logiciel au service de projets industriels concrets.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer conservé de stage.html -->
     <footer class="py-8 bg-gray-800 text-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
