@@ -131,13 +131,13 @@
     <!-- Header conservé de stage.html -->
     <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary">Conrad <span class="text-gray-800">BADOU</span></a>
+            <a href="home.html" class="text-2xl font-bold text-primary">Conrad <span class="text-gray-800">BADOU</span></a>
             
             <nav class="hidden md:flex space-x-8">
-                <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors">À propos</a>
-                <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors">Compétences</a>
-                <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors">Projets</a>
-                <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+                <a href="home.html" class="nav-link text-gray-700 hover:text-primary transition-colors">À propos</a>
+                <a href="home.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Compétences</a>
+                <a href="home.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Projets</a>
+                <a href="home.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
             </nav>
             
             <div class="md:hidden flex items-center">
@@ -275,6 +275,12 @@ La mise en œuvre pratique de ce savoir se concrétise dans la classe Measure de
             </div>
 
             <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/traceapi1.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 6 : Modélisation objet & Créer/manipuler des modèles Mongoose avec Node Js</figcaption>
+                    </figure>
+                   
+               
                 <div class="flex-1 order-2 md:order-1">
                     <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
                         <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
@@ -288,13 +294,6 @@ La mise en œuvre pratique de ce savoir se concrétise dans la classe Measure de
                           Le savoir mobilisé ici est la compréhension de l’importance de la validation des données côté serveur, afin de garantir l’intégrité et la sécurité des informations reçues, et de se prémunir contre les erreurs ou les attaques potentielles. Dans la mise en œuvre pratique, j’ai développé la fonction checkName (Figure 6) qui vérifie si la donnée reçue (type) est bien définie et ne contient que des caractères autorisés grâce à la méthode isAlphanumeric du module validator. Si la validation échoue, je renseigne une erreur spécifique et j’interromps le traitement. Cette démarche me permet de contrôler efficacement les entrées utilisateur et de renforcer la robustesse de mon application.  
                         </p>
                     </div>
-                </div>
-                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
-                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
-                        <img src="img/traceapi1.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
-                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 6 : Modélisation objet & Créer/manipuler des modèles Mongoose avec Node Js</figcaption>
-                    </figure>
-                   
                 </div>
              
             </div>
@@ -322,6 +321,13 @@ Le savoir mobilisé ici est l’utilisation d’Axios pour envoyer une requête 
              
             </div>
             <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/sae.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 8 : Tableau de bord </figcaption>
+                    </figure>
+                   
+             
+              
                 <div class="flex-1 order-2 md:order-1">
                     <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
                         <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
@@ -334,13 +340,7 @@ Le savoir mobilisé ici est l’utilisation d’Axios pour envoyer une requête 
 Le savoir mobilisé dans cette partie du projet concerne la compréhension de l’architecture d’une application front-end moderne, ici basée sur Vue.js, ainsi que la capacité à intégrer et personnaliser un template existant pour répondre à des besoins spécifiques. J’ai su analyser la structure du template téléchargé, identifier les composants clés (menu, tableau de bord, listes, pages d’administration) et les adapter à notre contexte métier, notamment en modifiant le menu de navigation, les interfaces et l’organisation des pages pour refléter la gestion des plantes, des capteurs et des utilisateurs. Le savoir-faire mis en œuvre se traduit par la personnalisation concrète de l’interface utilisateur : j’ai restructuré les vues pour afficher un tableau de bord synthétique, une liste détaillée des plantes avec leurs statuts, et une section d’administration permettant de visualiser les capteurs et leurs données. J’ai également veillé à ce que toutes ces interfaces soient dynamiquement alimentées par les données provenant de notre API Node.js, garantissant ainsi une application interactive, cohérente et adaptée à nos besoins. Les captures d’écran illustrent cette adaptation réussie, avec une interface claire, ergonomique et centrée sur l’expérience utilisateur.                        </p>
                     </div>
                 </div>
-                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
-                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
-                        <img src="img/sae.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
-                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 8 : Tableau de bord </figcaption>
-                    </figure>
-                   
-                </div>
+               
              
             </div>
             <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
@@ -363,8 +363,7 @@ Le savoir mobilisé dans cette partie du projet concerne la compréhension de l�
             <hr class="w-24 mx-auto border-primary mb-6">
             <h2 class="text-2xl font-semibold text-primary mb-4">Conclusion</h2>
             <p class="text-lg max-w-2xl mx-auto text-justify">
-                Ce stage m’a permis d’évoluer dans un environnement professionnel exigeant et stimulant. J’ai consolidé mes compétences techniques autour du framework Laravel, appris à manipuler de gros volumes de données et à structurer des interfaces ergonomiques et robustes. Au-delà des savoirs théoriques, ce sont mes savoir-faire en organisation, en adaptation et en communication technique que j’ai particulièrement renforcés. Cette expérience constitue une étape importante dans ma formation d’ingénieur et confirme mon intérêt pour le développement logiciel au service de projets industriels concrets.
-            </p>
+ Cette SAE m’a permis de développer des compétences concrètes en développement full stack, de la conception d’API Node.js à l’intégration d’interfaces dynamiques avec Vue.js. J’ai appris à modéliser des données, à assurer leur persistance, à sécuriser les échanges et à personnaliser des interfaces pour répondre à des besoins métier réels. Le travail en équipe m’a également permis de renforcer mes capacités d’organisation, d’adaptation et de communication technique. Ce projet illustre ma capacité à mener à bien toutes les étapes d’une application connectée, de l’architecture à la mise en production, en adoptant les bonnes pratiques du développement moderne.            </p>
         </section>
     </main>
 
