@@ -299,15 +299,60 @@ La mise en œuvre pratique de ce savoir se concrétise dans la classe Measure de
              
             </div>
             <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 6 – Consommation de l’endpoint côté front Vue.js
+                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Utilisation d’Axios pour envoyer une requête HTTP POST avec un objet JSON .</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span>  Intégration de l’endpoint dans la logique métier du front, gestion de la réponse et des erreurs.</p>
+                        <p class="text-justify">
+Le savoir mobilisé ici est l’utilisation d’Axios pour envoyer une requête HTTP POST contenant un objet JSON, ce qui permet de communiquer efficacement avec une API depuis une application front-end. Dans la mise en œuvre pratique, j’ai d’abord configuré une instance Axios pointant vers l’adresse de mon API Node.js. Ensuite, j’ai intégré l’appel à l’endpoint /measure directement dans la logique métier du front : lorsque je souhaite ajouter une mesure, j’utilise la méthode api.post pour transmettre les données au serveur. Je traite ensuite la réponse reçue en mettant à jour le store avec la nouvelle mesure, ou en gérant les erreurs si la requête échoue. Cette approche me permet d’assurer une interaction fluide et fiable entre l’interface utilisateur et le back-end, tout en centralisant la gestion des données et des éventuels problèmes de communication.                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
+                    <figure class="w-full bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/tracefront.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 7 : Consommation de l’endpoint côté front Vue.js</figcaption>
+                    </figure>
+                   
+                </div>
+             
+            </div>
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
+                <div class="flex-1 order-2 md:order-1">
+                    <h2 class="text-xl font-bold text-primary mb-2 flex items-center gap-2">
+                        <span class="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                        Trace 7 –  Personnalisation et intégration d’un template Vue.js pour la gestion de plantes connectées                    </h2>
+                    <hr class="my-4 border-primary/20">
+                    <div class="mb-2">
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoirs mobilisés :</span> Comprendre l’architecture d’une application front-end moderne (Vue.js), savoir analyser et adapter un template existant à un contexte métier spécifique, comprendre l’intégration front-end/back-end via une API REST</p>
+                        <p class="text-justify"><span class="font-semibold text-primary">Savoir-faire démontré :</span> Personnaliser le menu, les interfaces et les pages du template pour répondre aux besoins du projet (tableau de bord, liste des plantes, administration des capteurs), adapter la structure des composants Vue.js pour afficher dynamiquement les données issues de l’API Node.js, garantir la cohérence et l’ergonomie de l’interface utilisateur en fonction des usages attendus;</p>
+                        <p class="text-justify">
+Le savoir mobilisé dans cette partie du projet concerne la compréhension de l’architecture d’une application front-end moderne, ici basée sur Vue.js, ainsi que la capacité à intégrer et personnaliser un template existant pour répondre à des besoins spécifiques. J’ai su analyser la structure du template téléchargé, identifier les composants clés (menu, tableau de bord, listes, pages d’administration) et les adapter à notre contexte métier, notamment en modifiant le menu de navigation, les interfaces et l’organisation des pages pour refléter la gestion des plantes, des capteurs et des utilisateurs. Le savoir-faire mis en œuvre se traduit par la personnalisation concrète de l’interface utilisateur : j’ai restructuré les vues pour afficher un tableau de bord synthétique, une liste détaillée des plantes avec leurs statuts, et une section d’administration permettant de visualiser les capteurs et leurs données. J’ai également veillé à ce que toutes ces interfaces soient dynamiquement alimentées par les données provenant de notre API Node.js, garantissant ainsi une application interactive, cohérente et adaptée à nos besoins. Les captures d’écran illustrent cette adaptation réussie, avec une interface claire, ergonomique et centrée sur l’expérience utilisateur.                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
+                    <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
+                        <img src="img/sae.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 8 : Tableau de bord </figcaption>
+                    </figure>
+                   
+                </div>
+             
+            </div>
+            <div class="relative bg-white rounded-lg shadow p-6 flex flex-col md:flex-row items-center gap-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl before:absolute before:-left-7 before:top-6 before:w-4 before:h-4 before:bg-primary before:rounded-full">
                 
                 <div class="flex-1 flex flex-col gap-4 md:flex-row order-1 md:order-2">
                     <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
-                        <img src="img/trace5.jpeg" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
-                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5b : Interface Laravel AEDATA – Vue Avant mon arrivé</figcaption>
+                        <img src="img/front.png" alt="Interface Laravel optimisée 1" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 8a: Interface de la liste des plantes sur le front</figcaption>
                     </figure>
                     <figure class="flex-1 bg-gray-50 rounded-lg p-4 shadow transition-transform duration-300 hover:scale-105">
-                        <img src="img/trace6.jpeg" alt="Interface Laravel optimisée 2" class="rounded border w-full object-cover max-h-64">
-                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 5c : Interface Laravel AEDATA – Vue après mes modifications</figcaption>
+                        <img src="img/front1.png" alt="Interface Laravel optimisée 2" class="rounded border w-full object-cover max-h-64">
+                        <figcaption class="text-sm text-gray-500 text-center mt-2">Figure 8b: Interface Admin sur le front</figcaption>
                     </figure>
                 </div>
              
